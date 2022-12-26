@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "newweb/wsgi.py",
+        "src": "newweb/newweb/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "Python 3.8.10" }
       },
@@ -16,12 +16,12 @@
     ],
     "routes": [
       {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
+        "src": "newweb/newpage/static/(.*)",
+        "dest": "newweb/newpage/static/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "newweb/wsgi.py"
+        "dest": "newweb/newweb/wsgi.py"
       }
     ]
   }
